@@ -21,8 +21,15 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "{{ project_name }}.settings")
 # file. This includes Django's development server, if the WSGI_APPLICATION
 # setting points here.
 from django.core.wsgi import get_wsgi_application
-application = get_wsgi_application()
+_application = get_wsgi_application()
 
-# Apply WSGI middleware here.
-# from helloworld.wsgi import HelloWorldApplication
-# application = HelloWorldApplication(application)
+def application(environ, start_response):
+    '''
+    WSGI wrapper
+    '''
+    # Trick Django into thinking proxied traffic is coming in via HTTPS,
+    # but only if the HTTP_X_FORWARDED_SSL is "on".
+    if environ.get('HTTP_X_FORWARDED_PROTOCOL', 'http') == 'https' or \
+       environ.get('HTTP_X_FORWARDED_SSL', 'off') == 'on':
+        environ['wsgi.url_scheme'] = 'https'
+    return _application(environ, start_response)
