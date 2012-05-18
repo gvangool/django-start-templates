@@ -106,6 +106,9 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+
+    # Uncomment next line to enable the templates in the project directory
+    # path_to('templates'),
 )
 
 INSTALLED_APPS = (
@@ -119,6 +122,8 @@ INSTALLED_APPS = (
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+    # Uncomment the next line to enable the project itself as an app (for translations, templates, staticfiles)
+    # '{{ project_name }}',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -134,12 +139,28 @@ LOGGING = {
             '()': 'django.utils.log.RequireDebugFalse'
         }
     },
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
     'handlers': {
         'mail_admins': {
             'level': 'ERROR',
             'filters': ['require_debug_false'],
             'class': 'django.utils.log.AdminEmailHandler'
-        }
+        },
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+        'null': {
+            'level': 'INFO',
+            'class': 'django.utils.log.NullHandler',
+        },
     },
     'loggers': {
         'django.request': {
