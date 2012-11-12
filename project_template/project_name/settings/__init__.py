@@ -6,7 +6,7 @@ ROOT = os.path.abspath(
     )
 )
 
-path_to = lambda * x: os.path.join(ROOT, *x)
+path_to = lambda *x: os.path.join(ROOT, *x)
 
 CONFIG_DEV = 'dev'
 CONFIG_BETA = 'beta'
