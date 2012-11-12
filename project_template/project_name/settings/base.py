@@ -134,6 +134,10 @@ INSTALLED_APPS = (
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+    # Uncomment for the extra "default" apps
+    # 'django_extensions',
+    # 'south',
+    # 'gunicorn',
     # Uncomment the next line to enable the project itself as an app (for translations, templates, staticfiles)
     # '{{ project_name }}',
 )
