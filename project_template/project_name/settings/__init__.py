@@ -13,6 +13,9 @@ CONFIG_BETA = 'beta'
 CONFIG_PROD = 'production'
 CONFIG = CONFIG_DEV
 
+# Set this to the version of your app, e.g. {{ project_name }}.__version__
+VERSION = '1.0.0'
+
 execfile(path_to('settings', 'base.py'))
 execfile(path_to('settings', '%s.py' % CONFIG))
 

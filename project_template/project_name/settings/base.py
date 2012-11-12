@@ -61,6 +61,8 @@ STATIC_ROOT = path_to('_static')
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
 STATIC_URL = '/static/'
+# Or use one with a version in
+# STATIC_URL = '/static-%s/' % VERSION
 
 # Additional locations of static files
 STATICFILES_DIRS = (
