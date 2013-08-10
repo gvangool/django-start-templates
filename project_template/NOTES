@@ -1,0 +1,12 @@
+Settings
+--------
+- Reads settings from .env via `django-dotenv
+  <https://github.com/jacobian/django-dotenv>`_
+- Config database via `dj-database-url
+  <https://github.com/kennethreitz/dj-database-url>`_: write a env variable
+  with ``DATABASE_URL`` to configure default database
+- Config cach via `django-cache-url
+  <https://github.com/ghickman/django-cache-url>`_: write a env variable
+  with ``CACHE_URL`` to configure default cache backend
+
+Examples can be found in our ``.env``.
