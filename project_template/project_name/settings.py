@@ -23,7 +23,7 @@ import django_cache_url
 SECRET_KEY = '{{ secret_key }}'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'DEBUG' in os.environ
+DEBUG = os.environ.get('DEBUG', 'False').lower() in ('yes', 'y', 'true', '1')
 
 TEMPLATE_DEBUG = DEBUG
 
