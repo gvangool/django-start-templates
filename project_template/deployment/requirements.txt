@@ -6,6 +6,5 @@ django-extensions==1.1.1
 South==0.8.2
 gunicorn==17.5
 gevent==0.13.8
-django-dotenv==1.2
 dj-database-url==0.2.2
 django-cache-url==0.6.0
