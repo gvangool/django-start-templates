@@ -1,4 +1,4 @@
 -r requirements.txt
-django-debug-toolbar==1.2.1
-sqlparse==0.1.11
+django-debug-toolbar==1.2.2
+sqlparse==0.1.13
 django-dotenv==1.2
