@@ -1,5 +1,9 @@
 Django>=1.7,<1.8
+# MySQL/MariaDB
 #MySQL-python==1.2.5
+# MySQL-python alternative: https://github.com/PyMySQL/mysqlclient-python
+#PyMySQL==0.6.2
+# PostgreSQL
 #psycopg2==2.5.3
 docutils==0.12
 django-extensions==1.4.6
