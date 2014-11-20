@@ -43,7 +43,6 @@ INSTALLED_APPS = (
     # Uncomment for the extra "default" apps
     # 'django_extensions',
     # 'south',
-    # 'gunicorn',
 )
 
 MIDDLEWARE_CLASSES = (
