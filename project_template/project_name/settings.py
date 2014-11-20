@@ -42,7 +42,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     # Uncomment for the extra "default" apps
     # 'django_extensions',
-    # 'south',
 )
 
 MIDDLEWARE_CLASSES = (
