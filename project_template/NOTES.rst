@@ -2,8 +2,6 @@ Notes
 =====
 Settings
 --------
-- Reads settings from .env via `django-dotenv
-  <https://github.com/jacobian/django-dotenv>`_
 - Config database via `dj-database-url
   <https://github.com/kennethreitz/dj-database-url>`_: write a env variable
   with ``DATABASE_URL`` to configure default database
@@ -11,7 +9,10 @@ Settings
   <https://github.com/ghickman/django-cache-url>`_: write a env variable
   with ``CACHE_URL`` to configure default cache backend
 
-Examples can be found in our ``.env``.
+Examples can be found in our ``.envrc``.
+
+You can automatically read these settings from ``.envrc`` with `direnv
+<http://www.direnv.net>`_.
 
 PyMySQL
 -------
