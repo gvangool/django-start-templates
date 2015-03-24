@@ -1,17 +1,10 @@
 """
 WSGI config for {{ project_name }} project.
 
-This module contains the WSGI application used by Django's development server
-and any production WSGI deployments. It should expose a module-level variable
-named ``application``. Django's ``runserver`` and ``runfcgi`` commands discover
-this application via the ``WSGI_APPLICATION`` setting.
+It exposes the WSGI callable as a module-level variable named ``application``.
 
-Usually you will have the standard Django WSGI application here, but it also
-might make sense to replace the whole Django WSGI application with a custom one
-that later delegates to the Django one. For example, you could introduce WSGI
-middleware here, or combine a Django application with an application of another
-framework.
-
+For more information on this file, see
+https://docs.djangoproject.com/en/{{ docs_version }}/howto/deployment/wsgi/
 """
 import os
 
@@ -27,9 +20,12 @@ _application = get_wsgi_application()
 def application(environ, start_response):
     '''
     WSGI wrapper
+
+    Figure out whether incoming traffic came from HTTP.
+    It checks via ``X-Forwarded-Protocol`` (set to ``https``) or
+    ``X-Forwarded-Ssl`` (set to ``on``).
     '''
-    # Trick Django into thinking proxied traffic is coming in via HTTPS,
-    # but only if the HTTP_X_FORWARDED_SSL is "on".
+    # Trick Django into thinking proxied traffic is coming in via HTTPS.
     if environ.get('HTTP_X_FORWARDED_PROTOCOL', 'http') == 'https' or \
        environ.get('HTTP_X_FORWARDED_SSL', 'off') == 'on':
         environ['wsgi.url_scheme'] = 'https'
