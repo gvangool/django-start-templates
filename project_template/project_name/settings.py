@@ -29,7 +29,8 @@ DEBUG = os.environ.get('DEBUG', 'False').lower() in ('yes', 'y', 'true', '1')
 
 TEMPLATE_DEBUG = DEBUG
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(' ')
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '')
+ALLOWED_HOSTS = ALLOWED_HOSTS.split(' ') if ALLOWED_HOSTS != '*' else ALLOWED_HOSTS
 
 
 # Application definition
@@ -76,6 +77,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'debug': DEBUG,
         },
     },
 ]
@@ -110,7 +112,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/{{ docs_version }}/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/static/'  # '/s-%s/' % {{ project_name }}.__version__
+STATIC_ROOT = os.path.join(BASE_DIR, '_static')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Logging
 # A sample logging configuration. The only tangible logging

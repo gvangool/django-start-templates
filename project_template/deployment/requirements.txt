@@ -1,4 +1,4 @@
-Django>=1.7,<1.8
+Django>=1.8,<1.9
 # MySQL/MariaDB
 #MySQL-python==1.2.5
 # MySQL-python alternative: https://github.com/PyMySQL/mysqlclient-python
